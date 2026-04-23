@@ -16,7 +16,13 @@ const SaraLogo = ({ size = "w-14 h-14" }: { size?: string }) => (
 );
 
 export default function App() {
-  const downloadLink = "https://sara777official.com/sara777.apk";
+  const downloadLink = "https://sara777offical.com/sara777.apk";
+  
+  const handleDownload = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    window.open(downloadLink, '_blank');
+  };
+
   const [showNotification, setShowNotification] = useState(false);
   const [lastWinner, setLastWinner] = useState({ name: "Rahul S.", amount: "₹5,400" });
 
@@ -65,6 +71,10 @@ export default function App() {
       <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-[90] w-[90%] pointer-events-none">
         <motion.a 
           href={downloadLink}
+          onClick={handleDownload}
+          target="_blank"
+          rel="noopener noreferrer"
+          download="sara777.apk"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           className="pointer-events-auto flex items-center justify-center gap-4 w-full py-4 bg-yellow-400 text-black rounded-2xl font-black text-lg shadow-[0_15px_30px_-5px_rgba(250,204,21,0.3)] border-b-4 border-yellow-600 active:translate-y-1 active:border-b-0 transition-all uppercase"
@@ -99,6 +109,10 @@ export default function App() {
           <div className="flex items-center gap-4">
             <motion.a 
               href={downloadLink}
+              onClick={handleDownload}
+              target="_blank"
+              rel="noopener noreferrer"
+              download="sara777.apk"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-6 py-2.5 bg-yellow-400 text-black rounded-full text-sm font-black shadow-lg shadow-yellow-400/20 hover:bg-yellow-500 transition-all border-b-2 border-yellow-600/40 uppercase"
@@ -137,6 +151,10 @@ export default function App() {
             <div className="flex flex-col sm:flex-row gap-5 mb-12">
               <motion.a
                 href={downloadLink}
+                onClick={handleDownload}
+                target="_blank"
+                rel="noopener noreferrer"
+                download="sara777.apk"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center justify-center gap-4 px-12 py-6 bg-yellow-400 text-black rounded-[2rem] font-black text-2xl shadow-[0_20px_40px_-5px_rgba(250,204,21,0.3)] relative group overflow-hidden border-b-8 border-yellow-600 active:border-b-0 active:translate-y-2 transition-all"
@@ -307,7 +325,14 @@ export default function App() {
               </div>
               <div>
                 <h4 className="font-black mb-6 text-[10px] uppercase tracking-[0.3em] text-neutral-400">Action</h4>
-                <a href={downloadLink} className="p-5 bg-yellow-400 text-black font-black rounded-3xl block text-center shadow-xl shadow-yellow-600/20 active:scale-95 transition-transform uppercase text-sm border-b-4 border-yellow-600">
+                <a 
+                  href={downloadLink} 
+                  onClick={handleDownload}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download="sara777.apk"
+                  className="p-5 bg-yellow-400 text-black font-black rounded-3xl block text-center shadow-xl shadow-yellow-600/20 active:scale-95 transition-transform uppercase text-sm border-b-4 border-yellow-600"
+                >
                   APK DOWNLOAD
                 </a>
               </div>
