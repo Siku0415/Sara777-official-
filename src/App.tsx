@@ -33,10 +33,29 @@ export default function App() {
   const [lastWinner, setLastWinner] = useState({ name: "Rahul S.", amount: "₹5,400" });
 
   useEffect(() => {
-    // Manual PageView trigger for Meta Pixel detection
-    if (window.fbq) {
+    // Inject Meta Pixel Script
+    const initPixel = () => {
+      if (window.fbq) return;
+      
+      const n = (window as any).fbq = function() {
+        (n as any).callMethod ? (n as any).callMethod.apply(n, arguments) : (n as any).queue.push(arguments);
+      };
+      if (!(window as any)._fbq) (window as any)._fbq = n;
+      (n as any).push = n;
+      (n as any).loaded = !0;
+      (n as any).version = '2.0';
+      (n as any).queue = [];
+      const t = document.createElement('script');
+      t.async = !0;
+      t.src = 'https://connect.facebook.net/en_US/fbevents.js';
+      const s = document.getElementsByTagName('script')[0];
+      s.parentNode?.insertBefore(t, s);
+
+      window.fbq('init', '26794598016845961');
       window.fbq('track', 'PageView');
-    }
+    };
+
+    initPixel();
 
     const winners = [
       { name: "Rahul S.", amount: "₹5,400" },
