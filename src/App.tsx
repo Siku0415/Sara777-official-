@@ -2,6 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Download, ShieldCheck, Zap, Headphones, Share2, Star, BarChart3, Trophy, Clock, CheckCircle2, TrendingUp } from 'lucide-react';
 
+declare global {
+  interface Window {
+    fbq: any;
+  }
+}
+
 const SaraLogo = ({ size = "w-14 h-14" }: { size?: string }) => (
   <motion.div 
     whileHover={{ scale: 1.05 }}
@@ -27,6 +33,11 @@ export default function App() {
   const [lastWinner, setLastWinner] = useState({ name: "Rahul S.", amount: "₹5,400" });
 
   useEffect(() => {
+    // Manual PageView trigger for Meta Pixel detection
+    if (window.fbq) {
+      window.fbq('track', 'PageView');
+    }
+
     const winners = [
       { name: "Rahul S.", amount: "₹5,400" },
       { name: "Amit K.", amount: "₹12,200" },
