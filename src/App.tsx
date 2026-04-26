@@ -51,7 +51,7 @@ export default function App() {
       const s = document.getElementsByTagName('script')[0];
       s.parentNode?.insertBefore(t, s);
 
-      window.fbq('init', '26794598016845961');
+      window.fbq('init', '1308276881407758');
       window.fbq('track', 'PageView');
     };
 
