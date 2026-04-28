@@ -191,7 +191,7 @@ export default function App() {
               >
                 <div className="absolute inset-0 bg-white/40 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-12" />
                 <Download className="animate-bounce" />
-                START WINNING NOW
+                DOWNLOAD APK NOW
               </motion.a>
               
               <div className="flex flex-col justify-center bg-white/50 p-4 rounded-2xl border border-yellow-100 backdrop-blur-sm self-center sm:self-auto">
