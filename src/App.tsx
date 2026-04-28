@@ -84,7 +84,7 @@ export default function App() {
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 100 }}
-            className="fixed bottom-24 right-4 md:bottom-8 md:right-8 z-[100] bg-white border border-yellow-200 shadow-2xl rounded-2xl p-4 flex items-center gap-4 max-w-[280px]"
+            className="fixed bottom-8 right-4 md:bottom-8 md:right-8 z-[100] bg-white border border-yellow-200 shadow-2xl rounded-2xl p-4 flex items-center gap-4 max-w-[280px]"
           >
             <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 shrink-0">
               <Trophy size={20} />
@@ -96,23 +96,6 @@ export default function App() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Sticky Mobile CTA */}
-      <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-[90] w-[90%] pointer-events-none">
-        <motion.a 
-          href={downloadLink}
-          onClick={handleDownload}
-          target="_blank"
-          rel="noopener noreferrer"
-          download="sara777.apk"
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          className="pointer-events-auto flex items-center justify-center gap-4 w-full py-4 bg-yellow-400 text-black rounded-2xl font-black text-lg shadow-[0_15px_30px_-5px_rgba(250,204,21,0.3)] border-b-4 border-yellow-600 active:translate-y-1 active:border-b-0 transition-all uppercase"
-        >
-          <Download size={20} className="animate-bounce" />
-          DOWNLOAD OFFICIAL APK
-        </motion.a>
-      </div>
 
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-yellow-200">
