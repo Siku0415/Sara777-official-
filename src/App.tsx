@@ -24,8 +24,32 @@ const SaraLogo = ({ size = "w-14 h-14" }: { size?: string }) => (
 export default function App() {
   const downloadLink = "https://sara777offical.com/sara777.apk";
   
-  const handleDownload = (e?: React.MouseEvent) => {
+  const handleDownload = async (e?: React.MouseEvent) => {
     if (e) e.preventDefault();
+    
+    // Pixel tracking
+    if (window.fbq) {
+      window.fbq('track', 'CompleteRegistration');
+    }
+
+    // CAPI tracking
+    try {
+      await fetch('/api/track-event', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          eventName: 'CompleteRegistration',
+          userData: {},
+          customData: {
+            content_name: 'Sara777 APK Download',
+            status: 'success'
+          }
+        })
+      });
+    } catch (err) {
+      console.error('CAPI tracking failed', err);
+    }
+
     window.open(downloadLink, '_blank');
   };
 
@@ -51,7 +75,7 @@ export default function App() {
       const s = document.getElementsByTagName('script')[0];
       s.parentNode?.insertBefore(t, s);
 
-      window.fbq('init', '1308276881407758');
+      window.fbq('init', '26794598016845961');
       window.fbq('track', 'PageView');
     };
 
